@@ -1,5 +1,4 @@
 <?php
-// search.php - Muestra los resultados de la búsqueda
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -16,7 +15,6 @@
 </head>
 <body>
     <div class="container">
-        <!-- VULNERABILIDAD: XSS REFLEJADO -->
         <h1>Resultados para: "<?php echo $_GET['query']; ?>"</h1>
         <p>
             Lo sentimos, no se encontraron cursos que coincidan con tu búsqueda: 
@@ -27,4 +25,3 @@
     </div>
 </body>
 </html>
-
